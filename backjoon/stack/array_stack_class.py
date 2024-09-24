@@ -56,4 +56,25 @@ def reverseString(): #문자열 역순 프로그램
     while not stack.isEmpty():
         print(stack.pop())
 
-reverseString()
+# reverseString()
+def checkParentheses():
+    stack = ArrayStack(100)
+    str = input("검사할 괄호를 입력해주세요 :")
+
+    for c in str:
+        if c == ")" or c == "}" or c == "]":
+            if stack.isEmpty():
+                print("초반부터 장난질입니다.")
+                exit()
+            if (c == ")" and stack.peek() == "(") or (c == "}" and stack.peek() == "{") or (c == "]" and stack.peek() == "["):
+                stack.pop()
+                continue
+        stack.add(c)
+
+    print(stack.arr)
+    if stack.isEmpty():
+        print("아름다운 괄호입니다.")
+    else:
+        print("불량품인데요")
+
+checkParentheses()
