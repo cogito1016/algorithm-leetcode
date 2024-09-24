@@ -1,13 +1,13 @@
 capacity = 10
 arr = [None]*capacity
-pointer = 0
+pointer = -1
 
 print(arr) #[None, None, None, None, None, None, None, None, None, None]
 
 def add(n:int):
     global pointer
-    arr[pointer] = n
     pointer = pointer + 1
+    arr[pointer] = n
 
 add(3)
 print(arr) #[3, None, None, None, None, None, None, None, None, None]
@@ -27,9 +27,9 @@ def pop():
     if(isEmpty()):
         return None
     global pointer
-    pointer = pointer - 1
     result = arr[pointer]
     arr[pointer] = None
+    pointer = pointer - 1
     return result
 
 print(pop()) #2
@@ -43,6 +43,6 @@ print(arr)
 def peek():
     if(isEmpty()):
         return None
-    return arr[pointer-1]
+    return arr[pointer]
 
 print(peek()) #8
