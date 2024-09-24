@@ -46,3 +46,14 @@ print(stack.isEmpty()) #True
 stack.add(8)
 print(stack.arr) #[8, None, None, None, None, None, None, None, None, None]
 print(stack.peek()) #8
+
+
+def reverseString(): #문자열 역순 프로그램
+    stack = ArrayStack(100)
+    s = input("문자열 입력 :")
+    for c in s:
+        stack.add(c)
+    while not stack.isEmpty():
+        print(stack.pop())
+
+reverseString()
