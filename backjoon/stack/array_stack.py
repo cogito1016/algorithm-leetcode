@@ -6,7 +6,7 @@ print(arr) #[None, None, None, None, None, None, None, None, None, None]
 
 def add(n:int):
     global pointer
-    pointer = pointer + 1
+    pointer += 1
     arr[pointer] = n
 
 add(3)
@@ -29,7 +29,7 @@ def pop():
     global pointer
     result = arr[pointer]
     arr[pointer] = None
-    pointer = pointer - 1
+    pointer -= 1
     return result
 
 print(pop()) #2
