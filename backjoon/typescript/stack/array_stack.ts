@@ -22,28 +22,22 @@ class Stack{
     }
 
     size():number{
-        for(let i=0; i<this.arr.length; i++){
-            if(this.arr[i]==0){
-                return i
-            }
-        }
-        return this.arr.length
+        return this.pointer+1
     }
 
     isEmpty():boolean{
-        return this.size()==0
+        return this.pointer === -1
     }
 
     isFull():boolean{
-        return this.size() == this.arr.length
+        return this.pointer === this.arr.length-1
     }
 
     printInfo():void{
         console.log(this.arr)
         console.log(`This stack size is ${this.size()}
         and Stack empty : ${this.isEmpty()}
-        and Stack full : ${this.isFull()}
-        and Stack size : ${this.size()}`)
+        and Stack full : ${this.isFull()}`)
     }
 }
 
