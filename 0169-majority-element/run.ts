@@ -7,7 +7,7 @@ function solution(nums:number[]){
     if(LENGTH===1)
         return nums[0]
 
-    const map = new Map<number,number>
+    const map = new Map<number,number>();
     let max = 0;
     let majority = 0;
 
