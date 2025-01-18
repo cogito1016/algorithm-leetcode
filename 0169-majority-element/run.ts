@@ -13,12 +13,7 @@ function solution(nums:number[]){
 
     for(let i=0;i<LENGTH;i++){
         const num = nums[i];
-        if(!map.has(num)){
-            map.set(num,1)
-            continue
-        }
-
-        const newValue = map.get(num) + 1
+        const newValue = (map.get(num) ?? 0) + 1
         map.set(num,newValue)
 
         if(newValue>max){
