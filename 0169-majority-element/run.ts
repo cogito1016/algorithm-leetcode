@@ -1,5 +1,5 @@
 const nums = [2,2,1,1,1,2,2]
-console.log(solution(nums))
+console.log(solution2(nums))
 
 function solution(nums:number[]){
     const LENGTH = nums.length;
@@ -23,4 +23,25 @@ function solution(nums:number[]){
     }
 
     return majority
+}
+
+
+function solution2(nums:number[]){ // boyer and moore algorithm
+    let candidate = 0
+    let count = 0;
+
+    for(const num of nums){
+        const target = num
+
+        if(count===0)
+            candidate = target
+
+        if(candidate===target)
+            count++
+        else
+            count--
+
+    }
+    return candidate
+
 }
