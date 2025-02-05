@@ -1,22 +1,22 @@
-const nums = [3,6,10,1,8,9,9,8,9]
+const nums = [100,10,1]
 
 console.log(maxAscendingSum(nums))
 
 function maxAscendingSum(nums: number[]): number{
-    let maximum = 0;
-    let prevNum = 101;
+    let prevNum = nums[0];
+    let maximum = prevNum;
+    let temp = prevNum;
 
-    let temp = 0;
-    for(const num of nums){
-        if(prevNum>=num){
+    for(let i=1; i<nums.length; i++){
+        const num = nums[i]
+
+        if(num<=prevNum)
             temp = 0
-        }
 
-        temp += num;
-        prevNum = num;
+        temp += num
+        prevNum = num
 
-        if(temp>maximum)
-            maximum=temp
+        maximum = Math.max(temp, maximum)
     }
 
     return maximum
