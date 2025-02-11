@@ -1,38 +1,25 @@
 // @ts-ignore
-const str ="abc"
+const str ="cb34"
 console.log(clearDigits(str))
 
 function clearDigits(s: string): string {
-    let result = s;
-
+    let result = s.split("")
     let i = 1;
 
     while(i<result.length){
-        const code = result.charCodeAt(i)
-        const isAlpha = isAlphabet(code)
+        const char = result[i]
+        const isAlpha = isAlphabet(char)
 
-        if(isAlpha){
-            i++
-            continue
+        if(!isAlpha && isAlphabet(result[i-1])){
+            result.splice(i-1,2);
+            i -= 2
         }
-
-        if(!isAlpha && !isAlphabet(result.charCodeAt(i-1))){
-            i++
-            continue
-        }
-
-        const prev = result.substring(0,i-1)
-        const next = result.substring(i+1,result.length)
-        result = prev+next
-        i -= 2
+        i++
     }
 
-    return result
+    return result.join("")
 };
 
-function isAlphabet(askiCode: number):boolean{
-    if(askiCode>=97 && askiCode<=122){
-        return true
-    }
-    return false
+function isAlphabet(c: string):boolean{
+    return c>="a" && c<="z"
 }
