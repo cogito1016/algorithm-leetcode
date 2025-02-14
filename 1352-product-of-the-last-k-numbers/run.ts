@@ -4,24 +4,20 @@ class ProductOfNumbers {
 
     constructor() {
         this.arr = []
-        this.resultArr = []
+        this.resultArr = [1]
     }
 
     add(num: number): void {
-        this.arr = [num, ...this.arr]
-        this.resultArr = []
+        this.arr.push(num)
+        num===0?this.resultArr=[1]:this.resultArr.push(this.resultArr[this.resultArr.length-1]*num)
     }
 
     getProduct(k: number): number {
-        if(this.resultArr.length!==0 && this.resultArr.length >= k){
-            return this.resultArr[k-1]
-        }
+        const length = this.resultArr.length;
+        if(length<k)
+            return 0
 
-        this.arr.slice(0,k).forEach((num,idx)=>{
-            this.resultArr[idx] = num * (idx!==0?this.resultArr[idx-1] : 1)
-        })
-
-        return this.resultArr[k-1]
+        return this.resultArr[length-1]/this.resultArr[length-1-k] || 0
     }
 }
 
