@@ -10,15 +10,8 @@ function rotate(nums: number[], k: number): void {
     const len = nums.length
 
     while(k-->0){
-        const last = nums[len-1]
-        let target = nums[0]
-        for(let i=1;i<len; i++){
-            const temp = nums[i]
-            nums[i] = target
-            target = temp
-        }
-        nums[0] = last
-
+        const lastValue = nums[len-1];
+        nums = [lastValue, ...nums.slice(0,-1)]
         console.log(nums)
     }
  };
