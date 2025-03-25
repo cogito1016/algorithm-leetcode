@@ -7,11 +7,14 @@ const k = 3
 
 rotate(nums,k)
 function rotate(nums: number[], k: number): void {
-    const len = nums.length
+    // const len = nums.length
 
     while(k-->0){
-        const lastValue = nums[len-1];
-        nums = [lastValue, ...nums.slice(0,-1)]
+        // const lastValue = nums[len-1];
+        const lastValue = nums.pop()
+        if(lastValue===undefined)
+            break
+        nums.unshift(lastValue)
         console.log(nums)
     }
  };
