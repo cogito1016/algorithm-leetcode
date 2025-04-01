@@ -12,31 +12,29 @@ class MyQueue {
     }
 
     pop(): number {
-        while(this.stack1.length!==0){
-            const popNum = this.stack1.pop()
-            if(!popNum)
-                break
-            this.stack2.push(popNum)
-        }
-
-        const result = this.stack2.pop()!;
-
-        while(this.stack2.length!==0){
-            const popNum = this.stack2.pop()
-            if(!popNum)
-                break
-            this.stack1.push(popNum)
-        }
-
-        return result;
+        this.shiftStacks();
+        return this.stack2.pop()!;
     }
 
     peek(): number {
-        return this.stack1[0]
+        this.shiftStacks();
+        const result =  this.stack2.pop()!;
+        this.stack2.push(result)
+        return result
     }
 
     empty(): boolean {
-        return this.stack1.length===0
+        return this.stack1.length===0 && this.stack2.length===0
+    }
+
+    shiftStacks(): void{
+        if(this.stack2.length===0){
+            if(this.stack1.length>0){
+                while(this.stack1.length!==0){
+                    this.stack2.push(this.stack1.pop()!)
+                }
+            }
+        }
     }
 }
 
