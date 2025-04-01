@@ -1,25 +1,42 @@
 class MyQueue {
-    queue:number[]
+    stack1:number[]
+    stack2:number[]
 
     constructor() {
-        this.queue = []        
+        this.stack1 = []        
+        this.stack2 = []        
     }
 
     push(x: number): void {
-        this.queue.push(x)
+        this.stack1.push(x)
     }
 
     pop(): number {
-        const result = this.queue.shift() ?? 0
-        return result
+        while(this.stack1.length!==0){
+            const popNum = this.stack1.pop()
+            if(!popNum)
+                break
+            this.stack2.push(popNum)
+        }
+
+        const result = this.stack2.pop()!;
+
+        while(this.stack2.length!==0){
+            const popNum = this.stack2.pop()
+            if(!popNum)
+                break
+            this.stack1.push(popNum)
+        }
+
+        return result;
     }
 
     peek(): number {
-        return this.queue[0]
+        return this.stack1[0]
     }
 
     empty(): boolean {
-        return this.queue.length===0
+        return this.stack1.length===0
     }
 }
 
