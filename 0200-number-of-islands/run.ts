@@ -18,17 +18,17 @@ function numIslands(grid: string[][]): number {
     const queue : [number,number][] = []
     const rowMax = grid[0].length
     const colMax = grid.length
+    let count = 0;
 
     for(let i=0; i<rowMax; i++){
         for(let j=0; j<colMax; j++){
-            queue.push([j,i])
             if(grid[j][i]==="0" || grid[j][i]==="2")
                 continue
-
+            queue.push([j,i])
             while(queue.length!==0){
                 const [y,x] = queue.shift()!;
         
-                if(grid[y][x]==="0")
+                if(grid[y][x]==="0" || grid[y][x]==="2")
                     continue
         
                 grid[y][x]="2"
@@ -42,6 +42,8 @@ function numIslands(grid: string[][]): number {
                     }
                 }
             }
+            count++;
         }
     }
+    return count;
 };
