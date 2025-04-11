@@ -3,14 +3,13 @@ const nums = [1, 1, 2];
 console.log(removeDuplicates(nums));
 
 function removeDuplicates(nums: number[]): number {
-  let idx = 0;
-  const set = new Set<number>();
-  for (let i = 0; i < nums.length; i++) {
-    const n = nums[i];
-    if (set.has(n)) continue;
-    set.add(n);
-    nums[idx++] = n;
+  let idx = 1;
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[i - 1]) {
+      nums[idx] = nums[i];
+      idx++;
+    }
   }
 
-  return set.size;
+  return idx;
 }
