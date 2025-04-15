@@ -5,27 +5,22 @@ console.log(twoSum(numbers,target))
 
 //two-sum 1과 동일하게 풀어도 됨, 그러나 문제의 의도는 '투포인터'를 사용하라.
 function twoSum(numbers: number[], target: number): number[] {
-    let left =0, right =1;
+    let left =0, right =numbers.length-1;
     let result:number[] = []
 
-    while(left<numbers.length){
-        const num = numbers[left]
-        const pair = target-num
+    while(left<right){
+        const pair = target-numbers[left]
 
-        if(numbers[right]===pair){
-            result = [left+1,right+1]
+        if(pair === numbers[right]){
+            result = [left+1, right+1]
             break;
-        }else if(numbers[right] < pair){
-            right++
-        }else if(numbers[right] > pair){
-            left++;
-            right=left+1;
         }
 
-        if(right >= numbers.length){
+        if(pair < numbers[right])
+            right--;
+
+        if(pair > numbers[right])
             left++;
-            right=left+1;
-        }
     }
 
     return result;
