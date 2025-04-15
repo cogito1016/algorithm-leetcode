@@ -1,20 +1,31 @@
-const numbers = [2,7,11,15]
-const target = 9
+const numbers = [5, 25, 75]
+const target = 100
 
 console.log(twoSum(numbers,target))
 
+//two-sum 1과 동일하게 풀어도 됨, 그러나 문제의 의도는 '투포인터'를 사용하라.
 function twoSum(numbers: number[], target: number): number[] {
-    const map = new Map<number,number>()
+    let left =0, right =1;
     let result:number[] = []
-    for(let i=0; i<numbers.length; i++){
-        const num = numbers[i]
-        const key = target-num
 
-        if(map.has(num)){
-            result = [map.get(num)!+1,i+1]
+    while(left<numbers.length){
+        const num = numbers[left]
+        const pair = target-num
+
+        if(numbers[right]===pair){
+            result = [left+1,right+1]
             break;
+        }else if(numbers[right] < pair){
+            right++
+        }else if(numbers[right] > pair){
+            left++;
+            right=left+1;
         }
-        map.set(key,i)
+
+        if(right >= numbers.length){
+            left++;
+            right=left+1;
+        }
     }
 
     return result;
