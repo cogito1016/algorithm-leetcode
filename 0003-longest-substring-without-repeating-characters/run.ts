@@ -1,11 +1,10 @@
-const s = "au";
+const s = "abcabcbb";
 
 console.log(lengthOfLongestSubstring(s))
 
 function lengthOfLongestSubstring(s: string): number {
     const set = new Set<string>()
-    let max = 0;
-    let result = 0;
+    let max = 1;
     let left =0, right =1;
 
     const sLen = s.length
@@ -15,36 +14,24 @@ function lengthOfLongestSubstring(s: string): number {
     if(sLen===1)
         return 1
     
-    max = 1
     let leftValue = s.charAt(left)
     set.add(leftValue)
     let rightValue = '';
     while(right < sLen){
-        console.log(`left : ${left} leftVal : ${leftValue} right : ${right} rightVal : ${rightValue}`)
-        console.log(set)
-        console.log(max)
-        console.log('------')
         rightValue = s.charAt(right)
 
-        if(max>result)
-            result=max
-
-        if(set.has(rightValue)){
-            leftValue = s.charAt(++left)
-            right = left+1
-            max = 1
-            set.clear()
-            set.add(leftValue)
-            continue
+        while(set.has(rightValue)){
+            set.delete(leftValue)
+            left++
+            leftValue=s.charAt(left)
         }
 
         set.add(rightValue)
-        right++
-        max++
-    }
+        right++;
 
-    if(max>result)
-        result=max
-    
-    return result    
+        if(max<set.size)
+            max=set.size
+
+    }
+    return max
 };
