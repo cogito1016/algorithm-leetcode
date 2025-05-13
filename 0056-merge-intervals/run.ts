@@ -7,26 +7,21 @@ function merge(intervals: number[][]): number[][] {
     return intervals
 
   intervals.sort((a,b)=> a[0]-b[0])
-  console.log(intervals)
+  const result:number[][] = []
+
+  let prev = intervals[0]
   
-  for(let i=0; i<intervals.length-1; i++){
-    const prev = intervals[i]
-    const next = intervals[i+1]
-    if(prev[1]>=next[0]){
-        const mergedValue = [prev[0],Math.max(next[1],prev[1])]
+  for(let i=1; i<intervals.length; i++){
+    let current = intervals[i]
 
-        const originIntervals = intervals.slice(0,i)
-        const slicedIntervals = intervals.slice(i,intervals.length)
-
-        slicedIntervals.shift()
-        slicedIntervals.shift()
-        slicedIntervals.unshift(mergedValue)
-
-        intervals=[...originIntervals, ...slicedIntervals]
-        i--
-        continue
+    if(prev[1]>= current[0]){
+        prev = [prev[0],Math.max(prev[1],current[1])]
+    }else{
+        result.push(prev)
+        prev=current
     }
   }
 
-  return intervals;
+  result.push(prev)
+  return result;
 };
