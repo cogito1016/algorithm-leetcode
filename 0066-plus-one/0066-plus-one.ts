@@ -2,16 +2,12 @@ function plusOne(digits: number[]): number[] {
     const lastIdx = digits.length-1;
 
     for(let i = lastIdx; i>=0; i--){
-        if(digits[i]===9){
-            digits[i] = 0
-        }else{
-            digits[i] = digits[i]+1
-            break;
+        if(digits[i]<9){
+            digits[i]++
+            return digits
         }
-
-        if(i===0 && digits[i]===0)
-            digits = [1,...digits]
+        digits[i] = 0;
     }
 
-    return digits
+    return [1,...digits]
 };
