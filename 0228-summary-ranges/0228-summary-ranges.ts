@@ -1,37 +1,38 @@
 function summaryRanges(nums: number[]): string[] {
     let result :string[] = []
+    const len = nums.length;
 
-    if(nums.length===0){
+    if(len===0)
         return []
-    }
 
-    let startIdx = 0;
-
-    for(let i=1; i<nums.length; i++){
-        if(nums[i-1]-nums[i]===-1){
-            if(startIdx===-1)
-                startIdx=i-1
-            continue;
+    let prev = nums[0]
+    let startNum = nums[0]
+    for(let i=1; i<=len; i++){
+        if(i===len){
+            result.push(getRangebyTwoNumber(startNum, prev))
+            break;
         }
 
-        let str = ""
-        if(startIdx===i-1){
-            str = `${nums[startIdx]}`
-        }else{
-            str = `${nums[startIdx]}->${nums[i-1]}`
+        if(nums[i]===prev+1){
+            prev=nums[i]
+            continue
         }
-        startIdx=i
-        result.push(str)
+
+        result.push(getRangebyTwoNumber(startNum, prev))
+        prev=nums[i]
+        startNum=nums[i]
     }
 
-    if(startIdx!==-1){
-        let str = ""
-        if(startIdx===nums.length-1){
-            str = `${nums[startIdx]}`
-        }else{
-            str = `${nums[startIdx]}->${nums[nums.length-1]}`
-        }
-        result.push(str)
-    }
     return result
 };
+
+function getRangebyTwoNumber(startNum:number, prev:number):string{
+    let str :string = ""
+    if(prev===startNum){
+        str = `${startNum}`
+    }else{
+        str = `${startNum}->${prev}`
+    }
+
+    return str;
+}
