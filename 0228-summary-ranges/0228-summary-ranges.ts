@@ -7,32 +7,21 @@ function summaryRanges(nums: number[]): string[] {
 
     let prev = nums[0]
     let startNum = nums[0]
-    for(let i=1; i<=len; i++){
-        if(i===len){
-            result.push(getRangebyTwoNumber(startNum, prev))
-            break;
-        }
-
+    for(let i=1; i<len; i++){
         if(nums[i]===prev+1){
             prev=nums[i]
             continue
         }
 
-        result.push(getRangebyTwoNumber(startNum, prev))
+        result.push(formatRange(startNum, prev))
         prev=nums[i]
         startNum=nums[i]
     }
 
+    result.push(formatRange(startNum, prev))
     return result
 };
 
-function getRangebyTwoNumber(startNum:number, prev:number):string{
-    let str :string = ""
-    if(prev===startNum){
-        str = `${startNum}`
-    }else{
-        str = `${startNum}->${prev}`
-    }
-
-    return str;
+function formatRange(startNum:number, prev:number):string{
+    return prev===startNum? `${startNum}` : `${startNum}->${prev}`;
 }
