@@ -1,7 +1,8 @@
 function missingNumber(nums: number[]): number {
-    
-    let result = nums.length;
-    for(let i=0; i<nums.length; i++){
+    const len = nums.length
+    let result = len
+
+    for(let i=0;i<len;i++){
         result += i - nums[i]
     }
 
