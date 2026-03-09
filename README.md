@@ -6,6 +6,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0228-summary-ranges](https://github.com/cogito1016/algorithm-leetcode/tree/master/0228-summary-ranges) |
 | [0268-missing-number](https://github.com/cogito1016/algorithm-leetcode/tree/master/0268-missing-number) |
+| [0414-third-maximum-number](https://github.com/cogito1016/algorithm-leetcode/tree/master/0414-third-maximum-number) |
 ## Hash Table
 |  |
 | ------- |
@@ -26,4 +27,5 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0268-missing-number](https://github.com/cogito1016/algorithm-leetcode/tree/master/0268-missing-number) |
+| [0414-third-maximum-number](https://github.com/cogito1016/algorithm-leetcode/tree/master/0414-third-maximum-number) |
 <!---LeetCode Topics End-->
