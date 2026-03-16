@@ -14,6 +14,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Math
 |  |
 | ------- |
+| [0067-add-binary](https://github.com/cogito1016/algorithm-leetcode/tree/master/0067-add-binary) |
 | [0268-missing-number](https://github.com/cogito1016/algorithm-leetcode/tree/master/0268-missing-number) |
 ## Binary Search
 |  |
@@ -22,6 +23,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Bit Manipulation
 |  |
 | ------- |
+| [0067-add-binary](https://github.com/cogito1016/algorithm-leetcode/tree/master/0067-add-binary) |
 | [0268-missing-number](https://github.com/cogito1016/algorithm-leetcode/tree/master/0268-missing-number) |
 ## Sorting
 |  |
@@ -37,8 +39,13 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0028-find-the-index-of-the-first-occurrence-in-a-string](https://github.com/cogito1016/algorithm-leetcode/tree/master/0028-find-the-index-of-the-first-occurrence-in-a-string) |
 | [0058-length-of-last-word](https://github.com/cogito1016/algorithm-leetcode/tree/master/0058-length-of-last-word) |
+| [0067-add-binary](https://github.com/cogito1016/algorithm-leetcode/tree/master/0067-add-binary) |
 ## String Matching
 |  |
 | ------- |
 | [0028-find-the-index-of-the-first-occurrence-in-a-string](https://github.com/cogito1016/algorithm-leetcode/tree/master/0028-find-the-index-of-the-first-occurrence-in-a-string) |
+## Simulation
+|  |
+| ------- |
+| [0067-add-binary](https://github.com/cogito1016/algorithm-leetcode/tree/master/0067-add-binary) |
 <!---LeetCode Topics End-->
